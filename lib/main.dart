@@ -86,17 +86,15 @@ class _MyHomePageState extends State<MyHomePage> {
       _currentIndex--;
   }
 
-  bool _showTextLabel() {
+  void _showTextLabel() {
     setState(() => isTextLabel = false);
-    return true;
   }
 
-  bool second(String val) {
+  void _showInputText(String val) {
     setState(() {
       isTextLabel = true;
       _text = val.toString();
     });
-    return true;
   }
 
   @override
@@ -125,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
         style: TextStyle(
           color: colors[_currentIndex].title,
         ),
-        onSubmitted: (val) => second(val),
+        onSubmitted: (val) => _showInputText(val),
       ),
     );
 
