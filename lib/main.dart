@@ -32,9 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   String _text = 'Hey there';
   Random _random = Random();
 
-  bool isTextLabel = true;
+  bool _isTextLabel = true;
 
-  Map colors = {
+  Map _colors = {
     1: MyColors(
       background: Colors.blue,
       title: Colors.black,
@@ -70,8 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
   };
 
   void _incrementCounter() {
-    final min = 1;
-    _currentIndex = min + _random.nextInt(6);
+    final _min = 1;
+    _currentIndex = _min + _random.nextInt(6);
     _notRepeateTwoTimesInRow();
 
     setState(() => _currentIndex);
@@ -87,12 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _showTextLabel() {
-    setState(() => isTextLabel = false);
+    setState(() => _isTextLabel = false);
   }
 
   void _showInputText(String val) {
     setState(() {
-      isTextLabel = true;
+      _isTextLabel = true;
       _text = val.toString();
     });
   }
@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
         _text,
         style: TextStyle(
           fontSize: 30,
-          color: colors[_currentIndex].title,
+          color: _colors[_currentIndex].title,
         ),
       ),
     );
@@ -121,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
           hintText: "Input new text",
         ),
         style: TextStyle(
-          color: colors[_currentIndex].title,
+          color: _colors[_currentIndex].title,
         ),
         onSubmitted: (val) => _showInputText(val),
       ),
@@ -137,12 +137,12 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Container(
             width: screenWidth,
             height: screenHeight,
-            color: colors[_currentIndex].background,
+            color: _colors[_currentIndex].background,
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  isTextLabel ? textLabel : editText,
+                  _isTextLabel ? textLabel : editText,
                 ],
               ),
             ),
