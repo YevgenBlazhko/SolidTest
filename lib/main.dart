@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     final _min = 1;
-    _currentIndex = _min + _random.nextInt(6);
+    _currentIndex = _min + _random.nextInt(8);
     _notRepeateTwoTimesInRow();
 
     setState(() => _currentIndex);
@@ -80,9 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _notRepeateTwoTimesInRow() {
-    if (_currentIndex == _lastIndex && _currentIndex != 6) {
+    if (_currentIndex == _lastIndex && _currentIndex != 8) {
       _currentIndex++;
-    } else if (_currentIndex == _lastIndex && _currentIndex == 6)
+    } else if (_currentIndex == _lastIndex && _currentIndex == 8)
       _currentIndex--;
   }
 
